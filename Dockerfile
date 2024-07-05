@@ -17,4 +17,4 @@ RUN go build -o bin .
 Entrypoint [`/app/bin`]
 
 # Command to run your application
-CMD ["./myapp"]
+CMD ["./main"]
