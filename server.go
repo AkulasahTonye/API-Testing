@@ -26,5 +26,3 @@ func helloHendler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 }
-
-//http://localhost:8080/api/hello?visitor_name=Mark
