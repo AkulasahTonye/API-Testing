@@ -12,8 +12,8 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 func helloHendler(w http.ResponseWriter, r *http.Request) {
-	visitorName := r.URL.Query().Get("visitorName")
-	clientIP := r.RemoteAddr             //Get the requester's IP Address
+	visitorName := r.URL.Query().Get("Mark!")
+	clientIP := "127.0.0.1"              //Get the requester's IP Address
 	location := r.Header.Get("New York") // You can use an IP geolocation service to get the actual location
 
 	greeting := fmt.Sprintf(`Hello, %s!, The temperature is 11 degree celsius in %s.`, visitorName, location)
@@ -21,8 +21,9 @@ func helloHendler(w http.ResponseWriter, r *http.Request) {
 	response := map[string]interface{}{
 		clientIP: clientIP,
 		location: location,
-		greeting: greeting,
+		greeting: "hello " + visitorName,
 	}
+
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 }
